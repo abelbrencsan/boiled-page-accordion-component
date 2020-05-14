@@ -1,0 +1,90 @@
+// Accordion component variables
+$accordion-generate-scheme: true;
+$accordion-transition: 300ms ease;
+
+/* Accordion component prototype */
+ul.accordion {
+	list-style: none;
+	margin-bottom: $element-margin;
+	padding-left: 0;
+
+	> li {
+		border-bottom: 2px solid $border-color;
+		padding-left: 0;
+
+		> button {
+			background-color: transparent;
+			border: none;
+			color: inherit;
+			cursor: pointer;
+			display: block;
+			font-weight: $bold-font-weight;
+			padding: 0.5rem 0;
+			text-align: left;
+			width: 100%;
+
+			body.no-touch &:hover {
+				color: $link-color;
+			}
+
+			&:disabled {
+				color: mix($fg-color, $bg-color, 50);
+				cursor: not-allowed;
+
+				body.no-touch &:hover {
+					color: mix($fg-color, $bg-color, 50);
+				}
+			}
+
+			&:after {
+				content: '\02039';
+				display: inline-block;
+				float: right;
+				position: relative;
+				right: 0.5rem;
+				transform: rotate3d(0,0,1,-90deg);
+			}
+		}
+
+		> div {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height $accordion-transition, visibility $accordion-transition;
+			visibility: hidden;
+
+			&.is-opened {
+				margin-bottom: 0.5rem;
+				visibility: visible;
+			}
+
+			> :last-child,
+			> :last-child > :last-child,
+			> :last-child > :last-child > :last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+/* Accordion component extensions */
+ul.accordion {
+}
+
+/* Accordion component scheme modifications */
+@each $scheme in map-keys($schemes) {
+	@if (map-val($schemes, $scheme, generate-scheme) and $accordion-generate-scheme) {
+		&.scheme--#{$scheme} {
+
+			ul.accordion {
+
+				> li {
+					border-color: map-val($schemes, $scheme, border-color);
+
+					body.no-touch & > button:hover {
+						color: map-val($schemes, $scheme, link-color);
+					}
+				}
+			}
+		}
+	}
+}
