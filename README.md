@@ -15,6 +15,8 @@ Place `_accordion.scss` file to `/assets/css/components` directory, and add its 
 Class name | Description | Example
 ---------- | ----------- | -------
 `accordion` | Applies an accordion. | `<ul class="accordion"></ul>`
+`accordion-item` | Applies an accordion item. | `<li class="accordion-item"></li>`
+`accordion-item-content` | Applies content area of an accordion item. | `<div class="accordion-item-content"></div>`
 
 ### Examples
 
@@ -24,21 +26,21 @@ The following example shows a simple collapsible accordion. `data-accordion` att
 
 ```html
 <ul class="accordion" data-accordion>
-  <li data-accordion-item>
+  <li class="accordion-item" data-accordion-item>
     <button type="button" data-accordion-item-trigger>Accordion trigger 1</button>
-    <div data-accordion-item-element>
+    <div class="accordion-item-content" data-accordion-item-element>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
   </li>
-  <li data-accordion-item>
+  <li class="accordion-item" data-accordion-item>
     <button type="button" data-accordion-item-trigger>Accordion trigger 2</button>
-    <div data-accordion-item-element>
+    <div class="accordion-item-content" data-accordion-item-element>
       <p>Vestibulum sit amet bibendum metus, dapibus dictum tellus.</p>
     </div>
   </li>
-  <li data-accordion-item>
+  <li class="accordion-item" data-accordion-item>
     <button type="button" data-accordion-item-trigger>Accordion trigger 3</button>
-    <div data-accordion-item-element>
+    <div class="accordion-item-content" data-accordion-item-element>
       <p>Fusce neque arcu, semper eu lacus sed, scelerisque accumsan ipsum.</p>
     </div>
   </li>

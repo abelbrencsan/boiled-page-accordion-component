@@ -8,7 +8,7 @@ ul.accordion {
 	margin-bottom: $element-margin;
 	padding-left: 0;
 
-	> li {
+	> li.accordion-item {
 		border-bottom: 2px solid $border-color;
 		padding-left: 0;
 
@@ -46,7 +46,7 @@ ul.accordion {
 			}
 		}
 
-		> div {
+		> div.accordion-item-content {
 			max-height: 0;
 			overflow: hidden;
 			transition: max-height $accordion-transition, visibility $accordion-transition;
@@ -77,7 +77,7 @@ ul.accordion {
 
 			ul.accordion {
 
-				> li {
+				> li.accordion-item {
 					border-color: map-val($schemes, $scheme, border-color);
 
 					body.no-touch & > button:hover {
